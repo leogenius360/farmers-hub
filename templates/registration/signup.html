@@ -1,0 +1,41 @@
+{% extends 'base.html' %} {% load static %} {% block ExtraHead %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}" />
+{% endblock ExtraHead %} {% block Header %}
+<nav class=""></nav>
+{% endblock Header %} {% block MainContent %}
+<div class="">
+  <center>
+    <form method="post" class="form">
+        {% csrf_token %}
+        <div class="header">Register</div>
+        {% if form.errors %} {% for error in form.errors %} <p>{{ error }}</p> {% endfor %}{% endif %}
+        <div class="inputs">
+            {{form.username}} {{form.email}}  {{form.first_name}}  {{form.last_name}} {{form.password1}} {{form.password2}}
+            <label class="checkbox-text">Register As </label>
+            <div class="radio-inputs">
+                <label class="radio" for="farmer">
+                    <input type="radio" name="user_type" value="farmer" id="farmer" checked="" />
+                    <span class="name">FARMER</span>
+                </label>
+
+                <label class="radio" for="store_keeper">
+                    <input type="radio" name="user_type" value="store_keeper" id="store_keeper"/>
+                    <span class="name">STORE KEEPER</span>
+                </label>
+
+                <label class="radio" for="support">
+                    <input type="radio" name="user_type" value="support" id="support"/>
+                    <span class="name">SUPPORT</span>
+                </label>
+            </div>
+
+            <button type="submit" class="sigin-btn">Submit</button>
+            <a class="forget" href="#">Forget password?</a>
+            <p class="signup-link">
+            Already Registered?<a href="{% url 'login' %}">Sign In</a>
+            </p>
+        </div>
+    </form>
+  </center>
+</div>
+{% endblock MainContent %}

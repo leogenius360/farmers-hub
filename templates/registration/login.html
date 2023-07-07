@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% load static %} {% block ExtraHead %}
+<link rel="stylesheet" href="{% static 'css/auth.css' %}" />
+{% endblock ExtraHead %} {% block Header %}
+<nav class=""></nav>
+{% endblock Header %} {% block MainContent %}
+<div class="">
+  <center>
+    <form method="post" class="form">
+      {% csrf_token %}
+      <div class="header">Log in</div>
+      <div class="inputs">
+        <input name="username" placeholder="Username" class="input" type="text" required />
+        <input name="password" placeholder="Password" class="input" type="password" required />
+
+        <button type="submit" class="sigin-btn">Submit</button>
+        <a class="forget" href="register.html">Forget password?</a>
+        <p class="signup-link">
+          Not Registered?<a href="{% url 'signup' %}">Sign Up</a>
+        </p>
+      </div>
+    </form>
+  </center>
+</div>
+{% endblock MainContent %}

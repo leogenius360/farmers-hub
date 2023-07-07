@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block PageTitle %}Farm App{% endblock PageTitle %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    {% block ExtraHead %}{% endblock ExtraHead %}
+  </head>
+
+  <body>
+    <header id="Header">{% block Header %} {% endblock Header %}</header>
+
+    <main id="MainContent">
+      {% block MainContent %} {% endblock MainContent %}
+    </main>
+
+    <footer id="Footer">{% block Footer %} {% endblock Footer %}</footer>
+
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+
+    {% block ExtraScript %}{% endblock ExtraScript %}
+
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
+  </body>
+</html>
